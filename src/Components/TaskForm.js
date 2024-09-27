@@ -22,11 +22,10 @@ function TaskForm(props) {
       if (taskToEdit) {
         setNewTask(taskToEdit); // Set the task to edit
       }
-
-      //setTasks
     } else {
       // Reset form if not editing
       setNewTask({
+        id: "",
         assignedTo: "",
         status: "",
         dueDate: "",
@@ -105,17 +104,15 @@ function TaskForm(props) {
                   <label className="mb-2">
                     <span className="text-danger">*</span> Assigned To
                   </label>
-                  <select
+                  <input
+                    type="text"
                     className="form-control"
                     name="assignedTo"
                     value={newTask.assignedTo}
                     onChange={handleInputChange}
                     style={{ backgroundColor: "#f8f9fa" }}
-                  >
-                    <option value="">Select User</option>
-                    <option>User 1</option>
-                    <option>User 2</option>
-                  </select>
+                    placeholder="Enter Assignee Name"
+                  />
                 </div>
                 <div className="col-md-6 mb-3">
                   <label className="mb-2">
@@ -130,6 +127,7 @@ function TaskForm(props) {
                     <option value="">Select Status</option>
                     <option>Not Started</option>
                     <option>In Progress</option>
+                    <option>Completed</option>
                   </select>
                 </div>
                 <div className="col-md-6 mb-3">
